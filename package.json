@@ -1,0 +1,27 @@
+{
+  "name": "node-boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate project for node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node server/main.js",
+    "watch": "nodemon server/main.js --exec babel-node",
+    "build": "babel server -d server/dist",
+    "serve": "node server/dist/main.js",
+    "lint": "eslint"
+  },
+  "author": "Benjamin Bini",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "winston": "^2.3.0"
+  }
+}
