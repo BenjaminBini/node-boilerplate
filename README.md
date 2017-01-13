@@ -22,9 +22,9 @@ The code is linted with ESLint using airbnb preset plus some custom rules.
 
 * npm start
   * Start the server with babel-node (for development only)
-* npm watch
+* npm run watch
   * Start the server and watch for any change in the "server" directory to restart it using nodemon
-* npm build
+* npm run build
   * Build the back-end sources with babel
-* npm serve
+* npm run serve
   * Run the build sources with node
