@@ -1,7 +1,7 @@
 {
   "name": "node-boilerplate",
   "version": "0.0.1",
-  "description": "Boilerplate project for node.js",
+  "description": "Boilerplate project for Node.js",
   "main": "index.js",
   "scripts": {
     "start": "babel-node server/main.js",
