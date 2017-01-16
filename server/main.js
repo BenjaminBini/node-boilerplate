@@ -1,5 +1,9 @@
+import dotenv from 'dotenv';
 import Server from './server';
 
-// Create and start a server on port 1337
-const server = new Server(1337);
+// Init environment variable
+dotenv.config();
+
+// Create and start a server
+const server = new Server(process.env.PORT);
 server.serve();
