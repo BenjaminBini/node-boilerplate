@@ -1,14 +1,13 @@
 {
-  "name": "node-boilerplate",
+  "name": "node-api-boilerplate",
   "version": "0.0.1",
-  "description": "Boilerplate project for Node.js",
+  "description": "Boilerplate project for a Node.js API",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node server/main.js",
-    "watch": "nodemon server/main.js --exec babel-node",
-    "build": "cp -R client/ dist/client/ && babel server -d dist/server",
-    "serve": "node dist/server/main.js",
-    "lint": "eslint"
+    "start": "babel-node src/main.js",
+    "watch": "nodemon src/main.js --exec babel-node",
+    "build": "babel src -d build",
+    "serve": "node build/main.js"
   },
   "author": "Benjamin Bini",
   "license": "MIT",
@@ -24,6 +23,9 @@
     "body-parser": "^1.15.2",
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.0",
     "winston": "^2.3.0"
   }
 }

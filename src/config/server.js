@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'winston';
-import path from 'path';
+import router from './router';
 
 /**
  * This class is used to serve public resources
@@ -20,9 +20,7 @@ export default class Server {
     }));
     this.app.use(bodyParser.json());
 
-    // Static middleware
-    const clientPath = path.join(__dirname, '/../client/');
-    this.app.use(express.static(clientPath));
+    this.app.use('/api/v0.0.1/', router);
   }
 
   serve() {
