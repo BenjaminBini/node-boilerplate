@@ -1,7 +1,14 @@
+import Test from './../models/test';
+
+/**
+ * 'Test' service
+ */
 export default class TestService {
-  static getAll() {
-    return [{
-      test: 'test',
-    }];
+  /**
+   * Get all 'Test' objects
+   */
+  static async getAll() {
+    const result = await Test.getModel().findAll();
+    return result;
   }
 }

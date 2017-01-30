@@ -10,6 +10,9 @@ export function getDatabase() {
   return instance;
 }
 
+/**
+ * Class used to initialize the database connection and the Sequelize instance
+ */
 export default class Database {
   constructor() {
     if (!this.instance) { // Singleton instanciation
