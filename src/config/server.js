@@ -28,6 +28,7 @@ export default class Server {
 
     // Errors
     function errorMiddleware(err, req, res, next) {
+      logger.error(err);
       res.status(400);
       res.send({
         reason: err.message,

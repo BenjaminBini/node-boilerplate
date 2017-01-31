@@ -1,4 +1,4 @@
-import TestService from '../services/test-service';
+import TestService from '../services/test.service';
 
 /**
  * 'Test' controller
@@ -13,6 +13,18 @@ export default class TestController {
       const result = await TestService.getAll();
 
       // Send the response
+      res.send(result);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  /**
+   * Create a new 'Test' object
+   */
+  static async create(req, res, next) {
+    try {
+      const result = await TestService.create(req.body);
       res.send(result);
     } catch (e) {
       next(e);
