@@ -1,12 +1,11 @@
 import Sequelize from 'sequelize';
 
-export const schema = {
-  name: {
-    type: Sequelize.STRING,
-    field: 'name',
+export default {
+  name: 'test',
+  schema: {
+    name: Sequelize.STRING,
   },
-};
-
-export const options = {
-  freezeTableName: true,
+  options: {
+    freezeTableName: true,
+  },
 };

@@ -26,10 +26,13 @@ export default class Server {
     // API
     this.app.use('/api/v0.0.1/', router);
 
+
     // Errors
     function errorMiddleware(err, req, res, next) {
-      logger.error(err);
-      res.status(400);
+      if (!err.httpStatus) {
+        logger.error(err);
+      }
+      res.status(err.httpStatus ? err.httpStatus : 500);
       res.send({
         reason: err.message,
       });

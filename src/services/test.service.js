@@ -1,25 +1,52 @@
-import getModels from '../models/models';
+import Models from '../models/models';
+
+function getTestModel() {
+  return Models.getModels().Test;
+}
 
 /**
  * 'Test' service
  */
-export default class TestService {
+export default {
   /**
-   * Get all 'Test' objects
+   * Get all 'Test'
    */
-  static async getAll() {
-    const result = await getModels().Test.findAll();
-    return result;
-  }
+  async getAll() {
+    return getTestModel().findAll();
+  },
 
   /**
-   * Create a new 'Test' object
+   * Get a 'Test' by its id
    */
-  static async create(data) {
+  async getById(id) {
+    return getTestModel().findById(id);
+  },
+
+  async findByName(name) {
+    return getTestModel().findAll({
+      where: {
+        name,
+      },
+    });
+  },
+
+  /**
+   * Create a new 'Test'
+   */
+  async create(data) {
     const name = data.name;
-    const result = await getModels().Test.create({
+    return getTestModel().create({
       name,
     });
-    return result;
+  },
+
+  /**
+   * Delete a 'Test' by its id
+   */
+  async deleteById(id) {
+    const entity = await this.getById(id);
+    if (entity) {
+      return (await entity.destroy());
+    }
   }
-}
+};

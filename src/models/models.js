@@ -1,12 +1,13 @@
 import { getDatabase } from '../config/database';
-import { scheme as testSchema, options as testOptions } from './test.model';
+import TestModel from './test.model';
 
-export function configureModels() {
-  getDatabase().sequelize.define('test', testSchema, testOptions);
-}
-
-export default function getModels() {
-  return {
-    Test: getDatabase().sequelize.model('test'),
-  };
-}
+export default {
+  configureModels() {
+    getDatabase().sequelize.define(TestModel.name, TestModel.schema, TestModel.options);
+  },
+  getModels() {
+    return {
+      Test: getDatabase().sequelize.model(TestModel.name),
+    };
+  },
+};
